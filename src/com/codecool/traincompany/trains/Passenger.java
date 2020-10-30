@@ -14,7 +14,7 @@ public class Passenger extends Train {
         if(chanceToBuyTicket()){
             this.ticketPrice += 3.50;
         }else{
-            this.ticketPrice = 1.50;
+            this.ticketPrice += 1.50;
         }
         return 0;
     }

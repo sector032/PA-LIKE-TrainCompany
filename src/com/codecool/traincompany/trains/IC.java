@@ -13,7 +13,7 @@ public class IC extends Train {
         if(chanceToBuyTicket()){
             this.ticketPrice += 4;
         }else{
-            this.ticketPrice = 2;
+            this.ticketPrice += 2;
         }
         return 0;
     }
@@ -42,4 +42,6 @@ public class IC extends Train {
     public int twentyPercentOfPeople(){
         return (this.amountOfPeople * 20) / 100;
     }
+
+
 }
