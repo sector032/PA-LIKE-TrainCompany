@@ -5,32 +5,19 @@ import java.util.Random;
 public class Passenger extends Train {
 
     public Passenger() {
-        this.ticketPrice = calculateTicketPrice();
+        super();
+        this.ticketPrice = 1.50;
         this.costPerMonth = 1000;
     }
 
-    @Override
-    public int calculateTicketPrice() {
-        if(chanceToBuyTicket()){
-            this.ticketPrice += 3.50;
-        }else{
-            this.ticketPrice += 1.50;
-        }
-        return 0;
-    }
 
     @Override
     public void calculateRevenue() {
+        this.totalRevenue += this.amountOfPeople + getTicketOnTrainPrice() * 0.25;
+        this.totalRevenue += this.amountOfPeople * this.ticketPrice * 0.75;
         if(chanceToPunish()){
             this.totalRevenue += twentyPercentOfPeople() * 6;
         }
-    }
-
-    @Override
-    public boolean chanceToBuyTicket(){
-        Random random = new Random();
-        int number = random.nextInt(100)+1;
-        return number <= 25;
     }
 
     public boolean chanceToPunish(){

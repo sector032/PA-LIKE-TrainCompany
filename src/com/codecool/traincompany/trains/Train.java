@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.UUID;
 
 public abstract class Train {
-    public String serialNumber;
-    public int costPerMonth;
-    public double ticketPrice;
-    public int totalRevenue;
-    public int amountOfPeople;
+    protected String serialNumber;
+    protected int costPerMonth;
+    protected double ticketPrice;
+    protected int totalRevenue;
+    protected int amountOfPeople;
 
     public Train() {
         this.serialNumber = UUID.randomUUID().toString();
@@ -18,16 +18,33 @@ public abstract class Train {
 
     public int amountOfPeople() {
         Random random = new Random();
-        int minPeople = random.nextInt(115)+1;
-        int maxPeople = random.nextInt(250)+1;
-        int people = random.nextInt(maxPeople-minPeople) + minPeople;
-        return people;
+        return random.nextInt(250-115) + 115;
     }
+  
 
-
-    public abstract int calculateTicketPrice();
-
-    public abstract boolean chanceToBuyTicket();
 
     public abstract void calculateRevenue();
+
+    public double getTicketOnTrainPrice() {
+        return this.ticketPrice + 2;
+    }
+
+    public int getTotalRevenue() {
+        return totalRevenue;
+    }
+
+    public int getCostPerMonth() {
+        return costPerMonth;
+    }
+
+    @Override
+    public String toString() {
+        return "Train{" +
+                "serialNumber='" + serialNumber + '\'' +
+                ", costPerMonth=" + costPerMonth +
+                ", ticketPrice=" + ticketPrice +
+                ", totalRevenue=" + totalRevenue +
+                ", amountOfPeople=" + amountOfPeople +
+                '}';
+    }
 }

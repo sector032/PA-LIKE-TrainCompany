@@ -5,19 +5,11 @@ import java.util.Random;
 public class Freight extends Train {
 
     public Freight() {
+        super();
         this.costPerMonth = 1000;
         this.totalRevenue = 550;
     }
 
-    @Override
-    public int calculateTicketPrice() {
-        return 0;
-    }
-
-    @Override
-    public boolean chanceToBuyTicket() {
-        return false;
-    }
 
     @Override
     public void calculateRevenue() {
